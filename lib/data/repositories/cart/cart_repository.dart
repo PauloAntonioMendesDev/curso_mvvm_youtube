@@ -8,4 +8,6 @@ abstract class CartRepository extends ChangeNotifier {
   void addProductToCart(Product product);
   bool isProductInCart(Product product);
   Future<Result<List<CartItem>>> fetchItems();
+  void reduceItemQuantity(CartItem item);
+  void increaseItemQuantity(CartItem item);
 }

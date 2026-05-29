@@ -1,9 +1,15 @@
 import 'package:curso_mvvm_youtube/domain/models/cart_item.dart';
+import 'package:curso_mvvm_youtube/ui/cart_details/viewmodels/cart_details_viewmodel.dart';
 import 'package:flutter/material.dart';
 
 class CartDetailsItemCard extends StatelessWidget {
+  final CartDetailsViewmodel viewModel;
   final CartItem cartItem;
-  const CartDetailsItemCard({super.key, required this.cartItem});
+  const CartDetailsItemCard({
+    super.key,
+    required this.cartItem,
+    required this.viewModel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -81,14 +87,21 @@ class CartDetailsItemCard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                viewModel.reduceItemQuantity(cartItem);
+                              },
                               icon: Icon(Icons.remove),
                             ),
                             Text(
                               cartItem.productCount.toString(),
                               style: TextStyle(fontSize: 24),
                             ),
-                            IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                            IconButton(
+                              onPressed: () {
+                                viewModel.increaseItemQuantity(cartItem);
+                              },
+                              icon: Icon(Icons.add),
+                            ),
                           ],
                         ),
                       ),

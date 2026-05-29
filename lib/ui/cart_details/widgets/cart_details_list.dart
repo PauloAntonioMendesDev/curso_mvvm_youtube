@@ -17,8 +17,10 @@ class CartDetailsList extends StatelessWidget {
         }
         return ListView.builder(
           itemCount: viewmodel.items.length,
-          itemBuilder: (context, index) =>
-              CartDetailsItemCard(cartItem: viewmodel.items[index]),
+          itemBuilder: (context, index) => CartDetailsItemCard(
+            cartItem: viewmodel.items[index],
+            viewModel: viewmodel,
+          ),
         );
       },
     );

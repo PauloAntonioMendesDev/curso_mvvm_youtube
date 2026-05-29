@@ -22,4 +22,14 @@ class CartDetailsViewmodel extends ChangeNotifier {
   Future<Result<List<CartItem>>> _load() async {
     return await _cartRepository.fetchItems();
   }
+
+  void reduceItemQuantity(CartItem item) {
+    _cartRepository.reduceItemQuantity(item);
+    notifyListeners();
+  }
+
+  void increaseItemQuantity(CartItem item) {
+    _cartRepository.increaseItemQuantity(item);
+    notifyListeners();
+  }
 }

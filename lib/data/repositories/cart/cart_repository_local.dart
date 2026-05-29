@@ -41,4 +41,26 @@ class CartRepositoryLocal extends ChangeNotifier implements CartRepository {
   List<CartItem> get items => _items;
 
   final List<CartItem> _items = [];
+
+  @override
+  void reduceItemQuantity(CartItem item) {
+    final cartItem = _items.where((e) => e.product.id == item.product.id).first;
+
+    if (cartItem.productCount == 1) {
+      _items.removeWhere(((e) => e.product.id == item.product.id));
+    } else {
+      final index = _items.indexWhere((e) => e.product.id == item.product.id);
+      _items[index].productCount--;
+    }
+
+    notifyListeners();
+  }
+
+  @override
+  void increaseItemQuantity(CartItem item) {
+    final index = _items.indexWhere((e) => e.product.id == item.product.id);
+
+    _items[index].productCount++;
+    notifyListeners();
+  }
 }
