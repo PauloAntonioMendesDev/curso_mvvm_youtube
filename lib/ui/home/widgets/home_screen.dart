@@ -1,7 +1,6 @@
 import 'package:curso_mvvm_youtube/config/dependencies.dart';
 import 'package:curso_mvvm_youtube/routing/routes.dart';
 import 'package:curso_mvvm_youtube/ui/cart/viewmodels/cart_viewmodel.dart';
-import 'package:curso_mvvm_youtube/ui/product/viewmodels/product_viewmodel.dart';
 import 'package:curso_mvvm_youtube/ui/product/widgets/products_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -33,7 +32,7 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: ProductsWidget(
-        productViewmodel: ProductViewmodel(productRepository: getIt()),
+        productViewmodel: getIt(),
         cartViewmodel: cartViewModel,
       ),
     );

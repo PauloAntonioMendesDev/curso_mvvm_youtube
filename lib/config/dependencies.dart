@@ -8,6 +8,7 @@ import 'package:curso_mvvm_youtube/data/services/api/api_client.dart';
 import 'package:curso_mvvm_youtube/data/services/shared_preferences_service.dart';
 import 'package:curso_mvvm_youtube/ui/cart/viewmodels/cart_viewmodel.dart';
 import 'package:curso_mvvm_youtube/ui/cart_details/viewmodels/cart_details_viewmodel.dart';
+import 'package:curso_mvvm_youtube/ui/product/viewmodels/product_viewmodel.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -41,5 +42,9 @@ void setupDependecies() {
 
   getIt.registerLazySingleton<CartViewmodel>(
     () => CartViewmodel(cartRepository: getIt()),
+  );
+
+  getIt.registerLazySingleton<ProductViewmodel>(
+    () => ProductViewmodel(productRepository: getIt()),
   );
 }

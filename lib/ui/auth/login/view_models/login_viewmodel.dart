@@ -17,8 +17,6 @@ class LoginViewmodel {
       password: password,
     );
 
-    print(result.toString());
-
     return result;
   }
 }

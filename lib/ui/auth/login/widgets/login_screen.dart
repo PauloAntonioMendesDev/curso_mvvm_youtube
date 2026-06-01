@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
 }
 
 class _LogoContainer extends StatelessWidget {
-  const _LogoContainer({super.key});
+  const _LogoContainer();
 
   @override
   Widget build(BuildContext context) {
