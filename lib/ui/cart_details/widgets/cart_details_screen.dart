@@ -14,7 +14,11 @@ class _CartDetailsScreenState extends State<CartDetailsScreen> {
   @override
   void initState() {
     super.initState();
-    widget.viewModel.load.execute();
+    if (mounted) {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        widget.viewModel.load.execute();
+      });
+    }
   }
 
   @override

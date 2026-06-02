@@ -15,7 +15,7 @@ class CartDetailsItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8),
-      margin: EdgeInsets.all(16),
+      margin: EdgeInsets.only(top: 8),
       decoration: BoxDecoration(
         border: Border.all(width: 0.5),
         color: Colors.white70,
